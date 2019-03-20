@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <template id="report_invoice_document_prowine_with_payment" inherit_id="account.report_invoice_document" primary="True">
+
+        </template>
+
+        <template id="report_prowine">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="sale_report_prowine.report_invoice_document_prowine_with_payment" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <report
+            id="action_report_prowine"
+            string="Sales Invoice"
+            model="account.invoice"
+            report_type="qweb-pdf"
+            name="sale_report_prowine.report_prowine"
+            file="sale_report_prowine.report_prowine"
+            menu="True"/>
+    </data>
+</odoo>

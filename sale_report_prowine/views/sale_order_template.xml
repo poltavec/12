@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_document_prowine" inherit_id="sale.report_saleorder_document" primary="True">
+
+    </template>
+
+    <template id="report_saleorder_prowine" inherit_id="sale.report_saleorder">
+        <xpath expr="//t[@t-call='web.html_container']" position="replace">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sale_report_prowine.report_saleorder_document_prowine" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </xpath>
+    </template>
+</odoo>
