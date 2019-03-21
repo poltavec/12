@@ -69,6 +69,8 @@ class StockPicking(models.Model):
                                string="State (Сorresponds/No corresponds)")
     text_gross_mass = fields.Char(string='Gross mass',
                                   compute='_gross_mass_to_word')
+    type_of_packaging = fields.Char(string='Type of packaging')
+    documents_with_cargo = fields.Char(string='Documents with cargo')
 
     @api.multi
     def _compute_total_taxes(self):
